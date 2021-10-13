@@ -1,0 +1,65 @@
+@prefix : <http://groupfive.edu/kg/ontology/MadridEvents#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix prop: <http://groupfive.edu/kg/Properties#>.
+@prefix class: <http://groupfive.edu/kg/Classes/>.
+<http://groupfive.edu/kg/ontology/> rdf:type owl:Ontology.
+
+#properties
+:hasDescription rdf:type owl:ObjectProperty ;
+            rdfs:domain class:Event ;
+            rdfs:range :Description .
+
+:hasCoordinates rdf:type owl:ObjectProperty ;
+                rdfs:domain class:Event ;
+                rdfs:domain class:StopBus;
+                rdfs:range class:Coordinates.
+
+:hasAddress rdf:type owl:ObjectProperty ;
+                rdfs:domain class:Event .
+                
+
+
+#data properties
+
+:hasLongitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain class:Coordinates ;
+            rdfs:range xsd:float .
+
+:hasLatitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain class:Coordinates ;
+            rdfs:range xsd:float .
+
+:hasDescription rdf:type owl:DatatypeProperty ;
+            rdfs:domain class:Event ;
+            rdfs:range foaf:Description .
+
+:hasDate rdf:type owl:ObjectProperty ;
+                rdfs:domain class:Event ;
+                rdfs:domain class:StopBus;
+                rdfs:range foaf:Date.
+:hasPrice rdf:type owl:ObjectProperty ;
+                rdfs:domain class:Event ;
+                rdfs:range xsd:price.
+
+:hasAddress rdfs:range foaf:str .
+## Classes 
+
+# http://groupfive.edu/kg/Event
+class:Event rdf:type owl:Class.
+
+# http://groupfive.edu/kg/Coordinates
+class:Coordinates rdf:type owl:Class.
+
+# http://groupfive.edu/kg/StopBus
+class:StopBus rdf:type owl:Class.
+
+# http://groupfive.edu/kg/Address
+class:Address rdf:type owl:Class.
+
+# http://groupfive.edu/kg/Date
+#class:Date rdf:type owl:Class.
+
